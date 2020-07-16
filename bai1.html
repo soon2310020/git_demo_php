@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>bai1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='bootstrap.min.css'>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('.btn-success').click(function()
+            {
+             var r=$('#rong').val();
+             var d=$('#dai').val();
+             var err='',result='';
+             if(r==''&&d=='')
+             {
+                err='không được bỏ trống';
+             }
+             else if(isNaN(r)||isNaN(d))
+             {
+                 err='phải là số';
+             }
+             if(err=='')
+             {
+                 result='chu vi là :'+((parseInt(d)+parseInt(r))*2);
+                 result+='<br>diện tích là :'+(parseInt(d)*parseInt(r));
+             }
+             $('#err').html(err);
+             $('#result').html(result);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="" >
+            <h3 id='err' style="color: red;"></h3>
+            <div class="form-group">
+                <label for="dai">nhập vào chiều dài(đơn vị met)</label>
+                <input type="text" class="form-control" id="dai" >
+              </div>
+              <div class="form-group">
+                <label for="rong">nhập vào chiều rộng (đơn vị met)</label>
+                <input type="text" class="form-control" id="rong">
+              </div>
+              <button type="button" class="btn btn-success">tính chu vi và diện tích</button>
+              <h3 id='result' style="color: blue;"></h3>
+        </form>
+    </div>
+</body>
+</html>
